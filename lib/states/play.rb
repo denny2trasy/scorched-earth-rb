@@ -26,15 +26,17 @@ class Play <  Chingu::GameState
     Terrain.instance.generate
 
     # player 1
-    x = rand(0..$window.width / 4)
+    x = rand($window.width / 4)
     Tank.create(:x => x, :y => Terrain.instance.highest_collide_point(x))
 
     # player 2
-    x = rand(($window.width / 4 * 3)..$window.width)
+    # x = rand(($window.width / 4 * 3)..$window.width)
+    x = rand($window.width)
     Tank.create(:x => x, :y => Terrain.instance.highest_collide_point(x))
 
     # rand player start
-    @current_player_index = rand(1..Tank.size)
+    # @current_player_index = rand(1..Tank.size)
+    @current_player_index = rand(Tank.size)
 
     @timer ||= Timer.new
     @timer.start
